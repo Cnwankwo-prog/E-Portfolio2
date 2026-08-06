@@ -1,63 +1,384 @@
-Unit 3: Data Collection and Storage
-Overview
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license
+-->
+<html>
+	<head>
+		<title>Deciphering Big Data | Unit 3 | Chika Nwankwo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript>
+			<link rel="stylesheet" href="assets/css/noscript.css" />
+		</noscript>
+	</head>
 
-This unit explored different data sources, methods of data collection and the challenges associated with collecting, verifying and storing data. Particular emphasis was placed on data integrity, fact-checking, web services and memory requirements for different data formats.
+	<body class="is-preload">
 
-Learning Outcomes
-Analyse different data sources.
-Verify the integrity and reliability of data.
-Apply appropriate data collection methods.
-Conduct fact-finding and fact-checking.
-Understand memory and storage requirements.
-Evaluate the use of web services and crowdsourced data.
-Reading Summary
+		<!-- Wrapper -->
+		<div id="wrapper">
 
-McKinney (2022), Chapter 7
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo">
+					<strong>Chika Nwankwo</strong>
+					<span>E-Portfolio</span>
+				</a>
 
-This chapter introduced practical techniques for acquiring, cleaning and transforming data using Python. It demonstrated how Pandas can import data from multiple sources and prepare datasets for analysis through filtering, merging and reshaping operations.
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
 
-Sardar and Pandey (2024)
+			<!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="elements.html">About Me</a></li>
+					<li><a href="landing.html">Numerical Analysis</a></li>
+					<li><a href="generic.html">Deciphering Big Data</a></li>
+				</ul>
 
-The reading explained the importance of selecting reliable data sources and maintaining data quality throughout the collection process. It also discussed the challenges associated with storing increasingly large and complex datasets and the importance of scalable storage solutions.
+				<ul class="actions stacked">
+					<li>
+						<a href="generic.html" class="button primary fit">
+							Back to Deciphering Big Data
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-Practical Activity – Web Scraping Using Python
+			<!-- Main -->
+			<div id="main" class="alt">
 
-During this activity I developed a Python web-scraping script using the Requests and Beautiful Soup libraries to retrieve information from the Wikipedia Data Science webpage. The script searched for the keyword "Data Scientist", extracted matching paragraphs and stored the results in a JSON file.
+				<section id="one">
+					<div class="inner">
 
-The activity demonstrated how unstructured web content can be converted into structured data for later analysis. Initially, the script returned a 403 Forbidden response, which I resolved by adding a User-Agent header before sending the HTTP request. The completed script successfully returned a 200 OK response and identified five matching results.
+						<header class="major">
+							<h1>Unit 3: Data Collection and Storage</h1>
+						</header>
 
-Skills Developed
-Python programming
-Requests library
-Beautiful Soup
-HTML parsing
-JSON
-Web scraping
-Data collection
-Data extraction
-Reflection
+						<h2>Overview</h2>
 
-Completing this activity improved my understanding of how data can be collected automatically from online sources. I also learned that web scraping depends heavily on webpage structure and that websites may reject automated requests unless appropriate request headers are provided. The exercise reinforced the importance of collecting data ethically and respecting website policies when scraping publicly available information.
+						<p>
+							This unit explored different sources of data, methods of
+							data collection and the challenges associated with collecting,
+							verifying and storing information. Particular emphasis was
+							placed on data integrity, fact-checking, web services,
+							crowdsourced data and the memory and storage requirements
+							of different data formats.
+						</p>
 
-Evidence
+						<hr />
 
-This unit includes the following evidence:
+						<h2>Learning Outcomes</h2>
 
-Web Scraping Activity (Word document)
-Python code
-JSON output
-Google Colab screenshots
-<ul class="actions">
-    <li>
-        <a href="Web%20Scraping%20Activity.docx"
-           class="button primary icon solid fa-download">
-            Download Web Scraping Activity
-        </a>
-    </li>
+						<ul>
+							<li>Analyse different data sources.</li>
+							<li>Verify the integrity and reliability of data.</li>
+							<li>Apply appropriate data collection methods.</li>
+							<li>Conduct fact-finding and fact-checking.</li>
+							<li>Understand memory and storage requirements.</li>
+							<li>Evaluate the use of web services and crowdsourced data.</li>
+						</ul>
 
-    <li>
-        <a href="generic.html" class="button">
-            Back to Module
-        </a>
-    </li>
-</ul>
+						<hr />
+
+						<h2>Required Reading</h2>
+
+						<h3>McKinney (2022), Chapter 7</h3>
+
+						<p>
+							This reading developed my understanding of data cleaning
+							and preparation using Python. It introduced techniques for
+							identifying and handling missing values, removing duplicate
+							records, transforming data and preparing datasets so that
+							they can be analysed more reliably.
+						</p>
+
+						<h3>Sardar and Pandey (2024)</h3>
+
+						<p>
+							This reading reinforced the importance of selecting reliable
+							data sources and maintaining data quality throughout the
+							collection and storage process. It also highlighted the
+							challenges created by increasingly large and complex datasets,
+							including the need for appropriate and scalable storage
+							solutions.
+						</p>
+
+						<hr />
+
+						<h2>Practical Activity: Web Scraping Using Python</h2>
+
+						<p>
+							For this activity, I used Google Colaboratory to create and
+							run a Python web-scraping script. The script used the
+							Requests and Beautiful Soup libraries to retrieve and parse
+							information from the Wikipedia Data Science webpage.
+						</p>
+
+						<p>
+							The script searched the webpage paragraphs for the keyword
+							<strong>“Data Scientist”</strong>. Matching paragraphs were
+							extracted, stored in a Python list and then saved in a JSON
+							file so that the information could be reused or analysed
+							later.
+						</p>
+
+						<h3>Aim</h3>
+
+						<p>
+							The aim of the activity was to create a Python script that
+							could access a webpage, search its content for a selected
+							keyword and save the matching results in a structured JSON
+							format.
+						</p>
+
+						<h3>Libraries Used</h3>
+
+						<ul>
+							<li>
+								<strong>Requests:</strong> used to send HTTP requests
+								and retrieve the webpage.
+							</li>
+
+							<li>
+								<strong>Beautiful Soup:</strong> used to parse and
+								search the webpage HTML.
+							</li>
+
+							<li>
+								<strong>JSON:</strong> used to save the extracted
+								information in a structured file.
+							</li>
+						</ul>
+
+						<h3>Key Python Commands</h3>
+
+						<pre><code>!pip install requests beautifulsoup4</code></pre>
+
+						<pre><code>import requests
+from bs4 import BeautifulSoup
+import json</code></pre>
+
+						<pre><code>url = "https://en.wikipedia.org/wiki/Data_science"</code></pre>
+
+						<pre><code>headers = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+response = requests.get(url, headers=headers)</code></pre>
+
+						<pre><code>soup = BeautifulSoup(response.text, "html.parser")</code></pre>
+
+						<pre><code>keyword = "Data Scientist"
+results = []
+
+for paragraph in soup.find_all("p"):
+    text = paragraph.get_text(" ", strip=True)
+
+    if keyword.lower() in text.lower():
+        results.append(text)</code></pre>
+
+						<pre><code>data = {
+    "url": url,
+    "keyword": keyword,
+    "results_found": len(results),
+    "results": results
+}</code></pre>
+
+						<pre><code>with open("data_scientist_results.json", "w", encoding="utf-8") as file:
+    json.dump(data, file, indent=4)</code></pre>
+
+						<hr />
+
+						<h2>Challenges and Problem-Solving</h2>
+
+						<p>
+							The initial HTTP request returned a
+							<strong>403 Forbidden</strong> response. This meant that
+							the website was refusing the automated request.
+						</p>
+
+						<p>
+							I resolved this by adding a
+							<strong>User-Agent header</strong> to the request so that
+							it was recognised as coming from a web browser. After this
+							change, the request returned a
+							<strong>200 OK</strong> status code, confirming that the
+							webpage had been accessed successfully.
+						</p>
+
+						<hr />
+
+						<h2>Key Results</h2>
+
+						<table>
+							<thead>
+								<tr>
+									<th>Measure</th>
+									<th>Result</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td>Webpage used</td>
+									<td>Wikipedia Data Science webpage</td>
+								</tr>
+
+								<tr>
+									<td>Keyword searched</td>
+									<td>Data Scientist</td>
+								</tr>
+
+								<tr>
+									<td>Initial response</td>
+									<td>403 Forbidden</td>
+								</tr>
+
+								<tr>
+									<td>Successful response</td>
+									<td>200 OK</td>
+								</tr>
+
+								<tr>
+									<td>Matching results found</td>
+									<td>5</td>
+								</tr>
+
+								<tr>
+									<td>Output format</td>
+									<td>JSON</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>
+							The completed script successfully identified five paragraphs
+							containing the selected keyword and stored the extracted
+							information in a JSON file.
+						</p>
+
+						<hr />
+
+						<h2>Skills Developed</h2>
+
+						<ul>
+							<li>Python programming</li>
+							<li>Using Google Colaboratory</li>
+							<li>Sending HTTP requests</li>
+							<li>Using the Requests library</li>
+							<li>Parsing HTML with Beautiful Soup</li>
+							<li>Searching webpage content</li>
+							<li>Extracting unstructured data</li>
+							<li>Creating structured JSON output</li>
+							<li>Problem-solving and error resolution</li>
+							<li>Understanding ethical web-scraping considerations</li>
+						</ul>
+
+						<hr />
+
+						<h2>Reflection</h2>
+
+						<p>
+							Completing this activity improved my understanding of how
+							data can be collected automatically from online sources
+							using Python. I gained practical experience of using the
+							Requests and Beautiful Soup libraries to retrieve webpage
+							content and convert unstructured HTML into structured data.
+						</p>
+
+						<p>
+							The initial 403 response demonstrated that web scraping does
+							not always work immediately and may require troubleshooting.
+							Adding the User-Agent header helped me understand how websites
+							identify requests and why some automated requests may be
+							blocked.
+						</p>
+
+						<p>
+							I also learned that web-scraping scripts depend on the
+							structure of a webpage. If the HTML structure changes, the
+							script may need to be updated. The activity reinforced the
+							importance of respecting website policies, avoiding excessive
+							requests and ensuring that private or copyrighted information
+							is not collected inappropriately.
+						</p>
+
+						<hr />
+
+						<h2>Evidence</h2>
+
+						<p>
+							The completed activity contains the full method, Python code,
+							explanations, outputs and Google Colab screenshots.
+						</p>
+
+						<ul>
+							<li>Web Scraping Activity Word document</li>
+							<li>Python code</li>
+							<li>JSON output</li>
+							<li>Google Colab screenshots</li>
+						</ul>
+
+						<ul class="actions">
+							<li>
+								<a href="Web%20Scraping%20Activity.docx"
+								   class="button primary icon solid fa-download">
+									Download Web Scraping Activity
+								</a>
+							</li>
+
+							<li>
+								<a href="generic.html" class="button">
+									Back to Module
+								</a>
+							</li>
+						</ul>
+
+					</div>
+				</section>
+
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<ul class="icons">
+						<li>
+							<a href="https://github.com/cnwankwo-prog"
+							   class="icon brands alt fa-github">
+								<span class="label">GitHub</span>
+							</a>
+						</li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Chika Nwankwo</li>
+						<li>
+							Design:
+							<a href="https://html5up.net">HTML5 UP</a>
+						</li>
+					</ul>
+
+				</div>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
