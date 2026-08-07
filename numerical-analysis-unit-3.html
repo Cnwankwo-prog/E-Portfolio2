@@ -1,0 +1,591 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license
+-->
+<html>
+
+	<head>
+		<title>Numerical Analysis | Unit 3 | Chika Nwankwo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport"
+			  content="width=device-width, initial-scale=1, user-scalable=no" />
+
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<noscript>
+			<link rel="stylesheet" href="assets/css/noscript.css" />
+		</noscript>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+
+				<a href="index.html" class="logo">
+					<strong>Chika Nwankwo</strong>
+					<span>E-Portfolio</span>
+				</a>
+
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="landing.html">Numerical Analysis</a></li>
+					<li><a href="generic.html">Deciphering Big Data</a></li>
+					<li><a href="elements.html">About Me</a></li>
+				</ul>
+
+				<ul class="actions stacked">
+					<li>
+						<a href="landing.html"
+						   class="button primary fit">
+							Back to Numerical Analysis
+						</a>
+					</li>
+				</ul>
+
+			</nav>
+
+			<!-- Main -->
+			<div id="main" class="alt">
+
+				<section id="one">
+
+					<div class="inner">
+
+						<!-- Page Title -->
+						<header class="major">
+
+							<h1>
+								Unit 3: Data Management in R
+							</h1>
+
+						</header>
+
+						<!-- Overview -->
+						<h2>Overview</h2>
+
+						<p>
+							This unit developed my understanding of data management
+							using R. It focused on reading data into RStudio,
+							examining datasets and individual variables, converting
+							variable types and understanding how missing values can
+							be managed.
+						</p>
+
+						<p>
+							The practical activity used the COVID-19 India dataset
+							from January to March 2020. I used R to create new binary
+							and categorical variables, generate frequency tables and
+							identify patterns in the data.
+						</p>
+
+						<hr />
+
+						<!-- Learning Outcomes -->
+						<h2>Learning Outcomes</h2>
+
+						<p>
+							Through this unit, I developed my ability to:
+						</p>
+
+						<ul>
+
+							<li>
+								Read and examine datasets using R.
+							</li>
+
+							<li>
+								Examine individual variables within a dataset.
+							</li>
+
+							<li>
+								Create and convert different variable types.
+							</li>
+
+							<li>
+								Create binary and categorical variables.
+							</li>
+
+							<li>
+								Use frequency tables to summarise data.
+							</li>
+
+							<li>
+								Interpret patterns within real-world datasets.
+							</li>
+
+							<li>
+								Develop my understanding of how missing values
+								can be managed in R.
+							</li>
+
+						</ul>
+
+						<hr />
+
+						<!-- Practical Activity -->
+						<h2>
+							Dataset Activity: COVID-19 India
+						</h2>
+
+						<p>
+							For this activity, I used the COVID-19 India dataset,
+							which contained 270 observations. The analysis focused
+							on creating binary and categorical variables, producing
+							frequency tables and identifying patterns within the
+							dataset.
+						</p>
+
+						<hr />
+
+						<!-- Death Analysis -->
+						<h2>Death Reporting Analysis</h2>
+
+						<p>
+							I created a binary variable called
+							<code>has_deaths</code> to identify whether any deaths
+							had been recorded in each observation.
+						</p>
+
+						<h3>R Command</h3>
+
+						<pre><code>covid$has_deaths &lt;- ifelse(covid$Deaths &gt; 0, 1, 0)
+
+table(covid$has_deaths)</code></pre>
+
+						<h3>Results</h3>
+
+						<ul>
+
+							<li>
+								245 records had no deaths reported.
+							</li>
+
+							<li>
+								25 records had one or more deaths reported.
+							</li>
+
+						</ul>
+
+						<p>
+							This demonstrated how the <code>ifelse()</code>
+							function can be used to transform numerical information
+							into a simple binary variable that can then be analysed
+							using a frequency table.
+						</p>
+
+						<hr />
+
+						<!-- Factor Variable -->
+						<h2>Converting the Binary Variable to a Factor</h2>
+
+						<p>
+							I converted the numerical binary variable into a
+							factor so that the two categories were easier to
+							interpret.
+						</p>
+
+						<h3>R Command</h3>
+
+						<pre><code>covid$has_deaths &lt;- factor(
+    covid$has_deaths,
+    levels = c(0, 1),
+    labels = c("No Deaths", "Deaths Reported")
+)
+
+table(covid$has_deaths)</code></pre>
+
+						<p>
+							This changed the values 0 and 1 into meaningful
+							categorical labels: <strong>No Deaths</strong> and
+							<strong>Deaths Reported</strong>.
+						</p>
+
+						<hr />
+
+						<!-- Case Classification -->
+						<h2>Classification of Confirmed Cases</h2>
+
+						<p>
+							I calculated the total number of confirmed cases by
+							combining the confirmed Indian national cases and
+							confirmed foreign national cases.
+						</p>
+
+						<h3>R Command</h3>
+
+						<pre><code>covid$total_confirmed &lt;- covid$ConfirmedIndianNational +
+    covid$ConfirmedForeignNational</code></pre>
+
+						<p>
+							I then created a categorical variable called
+							<code>case_level</code> to classify the total confirmed
+							cases into four groups.
+						</p>
+
+						<pre><code>covid$case_level &lt;- cut(
+    covid$total_confirmed,
+    breaks = c(-Inf, 0, 5, 15, Inf),
+    labels = c(
+        "No Cases",
+        "Low Cases",
+        "Medium Cases",
+        "High Cases"
+    )
+)
+
+table(covid$case_level)
+
+prop.table(table(covid$case_level)) * 100</code></pre>
+
+						<h3>Results</h3>
+
+						<table>
+
+							<thead>
+
+								<tr>
+									<th>Case Level</th>
+									<th>Frequency</th>
+									<th>Percentage</th>
+								</tr>
+
+							</thead>
+
+							<tbody>
+
+								<tr>
+									<td>No Cases</td>
+									<td>0</td>
+									<td>0%</td>
+								</tr>
+
+								<tr>
+									<td>Low Cases</td>
+									<td>177</td>
+									<td>65.56%</td>
+								</tr>
+
+								<tr>
+									<td>Medium Cases</td>
+									<td>61</td>
+									<td>22.59%</td>
+								</tr>
+
+								<tr>
+									<td>High Cases</td>
+									<td>32</td>
+									<td>11.85%</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+						<p>
+							The results showed that the majority of observations
+							were classified as Low Cases. There were no observations
+							with zero confirmed cases.
+						</p>
+
+						<hr />
+
+						<!-- State Analysis -->
+						<h2>
+							State and Union Territory Frequency Analysis
+						</h2>
+
+						<p>
+							I used a frequency table to determine how often each
+							State or Union Territory appeared within the dataset.
+						</p>
+
+						<h3>R Command</h3>
+
+						<pre><code>state_freq &lt;- table(covid$State.UnionTerritory)
+
+state_freq_sorted &lt;- sort(
+    state_freq,
+    decreasing = TRUE
+)
+
+head(state_freq_sorted, 10)</code></pre>
+
+						<h3>Top 10 States by Number of Daily Reports</h3>
+
+						<table>
+
+							<thead>
+
+								<tr>
+									<th>State / Union Territory</th>
+									<th>Daily Reports</th>
+								</tr>
+
+							</thead>
+
+							<tbody>
+
+								<tr>
+									<td>Kerala</td>
+									<td>52</td>
+								</tr>
+
+								<tr>
+									<td>Delhi</td>
+									<td>20</td>
+								</tr>
+
+								<tr>
+									<td>Telengana</td>
+									<td>20</td>
+								</tr>
+
+								<tr>
+									<td>Rajasthan</td>
+									<td>19</td>
+								</tr>
+
+								<tr>
+									<td>Haryana</td>
+									<td>18</td>
+								</tr>
+
+								<tr>
+									<td>Uttar Pradesh</td>
+									<td>18</td>
+								</tr>
+
+								<tr>
+									<td>Tamil Nadu</td>
+									<td>15</td>
+								</tr>
+
+								<tr>
+									<td>Union Territory of Ladakh</td>
+									<td>14</td>
+								</tr>
+
+								<tr>
+									<td>Karnataka</td>
+									<td>13</td>
+								</tr>
+
+								<tr>
+									<td>Maharashtra</td>
+									<td>13</td>
+								</tr>
+
+							</tbody>
+
+						</table>
+
+						<p>
+							Kerala appeared most frequently in the dataset, with
+							52 daily records. It is important to note that this
+							represents the frequency of reporting within the dataset
+							rather than the total number of COVID-19 cases in Kerala.
+						</p>
+
+						<hr />
+
+						<!-- Visualisation -->
+						<h2>Data Visualisation</h2>
+
+						<p>
+							I created a bar chart to visualise the ten states or
+							Union Territories with the highest number of daily
+							reports.
+						</p>
+
+						<h3>R Command</h3>
+
+						<pre><code>par(mar = c(10, 5, 4, 2))
+
+barplot(
+    head(state_freq_sorted, 10),
+    main = "Top 10 States by Number of Daily Reports",
+    xlab = "",
+    ylab = "Number of Daily Reports",
+    las = 2
+)</code></pre>
+
+						<p>
+							The visualisation made the difference in reporting
+							frequency clearer, with Kerala showing a substantially
+							higher number of daily records than the other states.
+						</p>
+
+						<hr />
+
+						<!-- Skills -->
+						<h2>Skills Developed</h2>
+
+						<ul>
+
+							<li>Data management in R</li>
+
+							<li>Creating binary variables using <code>ifelse()</code></li>
+
+							<li>Creating factor variables using <code>factor()</code></li>
+
+							<li>Creating categorical variables using <code>cut()</code></li>
+
+							<li>Creating frequency tables using <code>table()</code></li>
+
+							<li>Calculating percentages using <code>prop.table()</code></li>
+
+							<li>Sorting frequency data</li>
+
+							<li>Identifying the highest-frequency categories</li>
+
+							<li>Creating bar charts</li>
+
+							<li>Interpreting statistical outputs</li>
+
+						</ul>
+
+						<hr />
+
+						<!-- Reflection -->
+						<h2>Reflection and Learning Outcomes</h2>
+
+						<p>
+							This activity improved my understanding of how R can
+							be used to transform, categorise and summarise data.
+							Using functions such as <code>ifelse()</code>,
+							<code>factor()</code>, <code>cut()</code>,
+							<code>table()</code> and <code>prop.table()</code>
+							demonstrated how raw numerical data can be converted
+							into meaningful categories and frequency distributions.
+						</p>
+
+						<p>
+							The activity also reinforced the importance of
+							maintaining clear and well-organised data throughout
+							the analysis process. Effective data management
+							supports transparency, reproducibility and the reliable
+							interpretation of analytical findings.
+						</p>
+
+						<p>
+							Overall, this activity supported the module learning
+							outcomes by developing my understanding of mathematical
+							and statistical concepts used in Data Science and
+							demonstrating how these methods can be applied to a
+							real-world dataset to identify patterns and support
+							evidence-based decision-making.
+						</p>
+
+						<hr />
+
+						<!-- Evidence -->
+						<h2>Evidence</h2>
+
+						<p>
+							The full Unit 3 activity includes my R commands,
+							results, interpretations, bar chart, screenshots,
+							reflection and references.
+						</p>
+
+						<ul class="actions">
+
+							<li>
+
+								<a href="Unit%203%20-%20Data%20Management%20in%20R.docx"
+								   class="button primary icon solid fa-download">
+
+									Download Unit 3 Report
+
+								</a>
+
+							</li>
+
+							<li>
+
+								<a href="landing.html"
+								   class="button">
+
+									Back to Numerical Analysis
+
+								</a>
+
+							</li>
+
+						</ul>
+
+					</div>
+
+				</section>
+
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+
+				<div class="inner">
+
+					<ul class="icons">
+
+						<li>
+
+							<a href="https://github.com/cnwankwo-prog"
+							   class="icon brands alt fa-github">
+
+								<span class="label">
+									GitHub
+								</span>
+
+							</a>
+
+						</li>
+
+					</ul>
+
+					<ul class="copyright">
+
+						<li>
+							&copy; Chika Nwankwo
+						</li>
+
+						<li>
+							Design:
+							<a href="https://html5up.net">
+								HTML5 UP
+							</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+
+</html>
