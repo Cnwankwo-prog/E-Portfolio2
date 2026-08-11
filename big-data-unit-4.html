@@ -5,6 +5,7 @@
 	Free for personal and commercial use under the CCA 3.0 license
 -->
 <html>
+
 	<head>
 		<title>Deciphering Big Data | Unit 4 | Chika Nwankwo</title>
 		<meta charset="utf-8" />
@@ -23,6 +24,7 @@
 
 			<!-- Header -->
 			<header id="header">
+
 				<a href="index.html" class="logo">
 					<strong>Chika Nwankwo</strong>
 					<span>E-Portfolio</span>
@@ -31,15 +33,17 @@
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
+
 			</header>
 
 			<!-- Menu -->
 			<nav id="menu">
+
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
+					<li><a href="elements.html">About Me</a></li>
 					<li><a href="landing.html">Numerical Analysis</a></li>
 					<li><a href="generic.html">Deciphering Big Data</a></li>
-					<li><a href="elements.html">About Me</a></li>
 					<li><a href="professional-reflection.html">Professional Reflection</a></li>
 				</ul>
 
@@ -50,240 +54,51 @@
 						</a>
 					</li>
 				</ul>
+
 			</nav>
 
 			<!-- Main -->
 			<div id="main" class="alt">
 
 				<section id="one">
+
 					<div class="inner">
 
 						<header class="major">
 							<h1>Unit 4: Data Cleaning and Transformation</h1>
 						</header>
 
-						<h2>Overview</h2>
+						<h2>Summary</h2>
 
 						<p>
-							This unit developed my understanding of data cleaning,
-							transformation and preparation using Python and Pandas.
-							The practical activities focused on examining raw survey
-							data, improving variable descriptions, formatting outputs,
-							identifying non-applicable values and examining data types
-							before analysis.
+							Unit 4 focused on data cleaning and transformation using
+							Python and Pandas. During the practical activities, I worked
+							with survey datasets to examine their structure, interpret
+							metadata, improve variable headings, investigate missing and
+							non-applicable values and examine different data types.
 						</p>
 
 						<p>
-							I worked with the UNICEF survey datasets
-							<code>mn.csv</code> and <code>mn_headers.csv</code>.
-							The exercises demonstrated how metadata can be used to
-							improve the interpretability of a dataset and why data
-							should be examined carefully before cleaning decisions
-							are made.
-						</p>
-
-						<hr />
-
-						<h2>Exercise 1: Preparing the Data Files</h2>
-
-						<p>
-							I used Python in Google Colab to import and inspect the
-							<code>mn.csv</code> and <code>mn_headers.csv</code> files
-							using Pandas.
-						</p>
-
-						<p>
-							The <code>mn.csv</code> dataset contained 9,080 rows and
-							159 columns, while <code>mn_headers.csv</code> contained
-							209 rows and three columns.
-						</p>
-
-						<p>
-							The main dataset used abbreviated variable names, while the
-							header dataset provided more understandable descriptions.
-							For example, <code>HH1</code> represented "Cluster number"
-							and <code>HH2</code> represented "Household number".
-						</p>
-
-						<p>
-							Initial inspection also highlighted possible data-quality
-							issues, including missing values and columns containing
-							mixed data types. This demonstrated the importance of
-							understanding the structure and quality of a dataset before
-							beginning further analysis.
+							The activities strengthened my understanding of the importance
+							of preparing and validating data before analysis. In particular,
+							I learned that missing values and other apparent data-quality
+							issues should be investigated within the context of the dataset
+							rather than being automatically removed. The activities also
+							demonstrated the value of metadata in making complex datasets
+							easier to understand and analyse.
 						</p>
 
 						<hr />
 
-						<h2>Exercise 2: Replacing Headers with Readable Labels</h2>
+						<h2>Unit 4 Evidence</h2>
 
 						<p>
-							In this exercise, I created a mapping between the abbreviated
-							variable names in the main dataset and their corresponding
-							descriptions in the header dataset.
-						</p>
-
-						<p>
-							The results showed that 150 of the 159 column headings were
-							successfully matched, leaving nine unmatched variables.
-							Rather than automatically removing these columns, I retained
-							the original names so that they could be investigated before
-							any decision was made about excluding them.
-						</p>
-
-						<p>
-							Examples of transformed headings included
-							<code>HH1</code> becoming <strong>Cluster number</strong>,
-							<code>HH2</code> becoming <strong>Household number</strong>
-							and <code>LN</code> becoming <strong>Line number</strong>.
-						</p>
-
-						<p>
-							This demonstrated how Python can automate metadata matching
-							and transformation, while also showing why the results of
-							automated transformations need to be checked rather than
-							assumed to be correct.
-						</p>
-
-						<hr />
-
-						<h2>Exercise 3: Formatting Data</h2>
-
-						<p>
-							I then focused on improving the readability of the survey
-							data. Some values within the Question column of the header
-							dataset were missing, meaning that the full question could
-							not always be used as the variable description.
-						</p>
-
-						<p>
-							To address this, I created a readable description using the
-							full survey question where available and the shorter label
-							when the question was missing.
-						</p>
-
-						<p>
-							I matched these descriptions with the corresponding values
-							from the first survey record. This produced clearer outputs
-							such as <strong>"Cluster number: 1"</strong>,
-							<strong>"Year of interview: 2014"</strong> and
-							<strong>"Result of man's interview: Completed"</strong>.
-						</p>
-
-						<p>
-							This exercise showed how formatting and metadata can make
-							raw datasets much easier to interpret before further
-							analysis is carried out.
-						</p>
-
-						<hr />
-
-						<h2>Exercises 4 and 5: Examining Data Values and Data Types</h2>
-
-						<p>
-							The final part of the activity examined non-applicable
-							<code>NA</code> responses and the data types stored across
-							the dataset.
-						</p>
-
-						<p>
-							The analysis showed that every record contained at least
-							one <code>NA</code> response, while <code>NA</code>
-							occurred 606,612 times across individual values.
-						</p>
-
-						<p>
-							This highlighted an important data-cleaning consideration.
-							In survey data, <code>NA</code> may indicate that a question
-							was not applicable to a respondent rather than that the
-							information is erroneous or genuinely missing. Automatically
-							deleting all records containing <code>NA</code> could
-							therefore remove valid data.
-						</p>
-
-						<p>
-							I also examined the data types across the 159 columns.
-							The results showed:
-						</p>
-
-						<ul>
-							<li>142 object columns</li>
-							<li>15 integer (<code>int64</code>) columns</li>
-							<li>2 floating-point (<code>float64</code>) columns</li>
-						</ul>
-
-						<p>
-							The large number of object columns may partly reflect text
-							values such as <code>NA</code>, which can cause columns
-							containing otherwise numerical information to be interpreted
-							as text.
-						</p>
-
-						<hr />
-
-						<h2>Key Learning</h2>
-
-						<ul>
-							<li>Importing and inspecting datasets using Pandas</li>
-							<li>Understanding dataset dimensions and structure</li>
-							<li>Using metadata to interpret abbreviated variables</li>
-							<li>Automating the replacement of column headers</li>
-							<li>Checking unmatched metadata before removing data</li>
-							<li>Formatting outputs to improve readability</li>
-							<li>Investigating non-applicable and missing values</li>
-							<li>Examining and interpreting data types</li>
-							<li>Recognising the importance of context in data cleaning</li>
-						</ul>
-
-						<hr />
-
-						<h2>Reflection</h2>
-
-						<p>
-							This activity strengthened my understanding that data
-							cleaning is not simply about removing missing values or
-							changing variable names. Before making changes to a dataset,
-							it is important to understand what the values represent and
-							why apparent data-quality issues may have occurred.
-						</p>
-
-						<p>
-							The large number of <code>NA</code> responses was a useful
-							example. Initially, it might appear appropriate to remove
-							records containing missing information. However, examining
-							the context showed that <code>NA</code> could indicate that
-							a survey question was not applicable rather than that the
-							data was incorrect. Removing these records automatically
-							could therefore result in the loss of valid information.
-						</p>
-
-						<p>
-							The exercises also improved my appreciation of metadata.
-							Replacing abbreviated variable names with readable labels
-							made the dataset considerably easier to interpret, while the
-							nine unmatched headers demonstrated that automated
-							transformations still require validation.
-						</p>
-
-						<p>
-							Overall, this unit has helped me recognise data preparation
-							as a critical stage of the analytical process. Reliable
-							analysis depends on understanding the structure, meaning and
-							quality of the underlying data before statistical or
-							analytical methods are applied.
-						</p>
-
-						<hr />
-
-						<h2>Evidence</h2>
-
-						<p>
-							The full activity contains my Python outputs, explanations
-							and findings from the data-cleaning and transformation
-							exercises.
+							The full activity, including my Python work, results,
+							screenshots and reflection, can be downloaded below.
 						</p>
 
 						<ul class="actions">
+
 							<li>
 								<a href="Unit%204%20-%20Data%20Cleaning%20and%20Transformation.docx"
 								   class="button primary icon solid fa-download">
@@ -296,15 +111,18 @@
 									Back to Module
 								</a>
 							</li>
+
 						</ul>
 
 					</div>
+
 				</section>
 
 			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
+
 				<div class="inner">
 
 					<ul class="icons">
@@ -325,6 +143,7 @@
 					</ul>
 
 				</div>
+
 			</footer>
 
 		</div>
@@ -339,4 +158,5 @@
 		<script src="assets/js/main.js"></script>
 
 	</body>
+
 </html>
