@@ -2,276 +2,147 @@
 <!--
 	Forty by HTML5 UP
 	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license
 -->
 <html>
+
 <head>
 	<title>Numerical Analysis | Unit 2 | Chika Nwankwo</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport"
+		  content="width=device-width, initial-scale=1, user-scalable=no" />
+
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
 </head>
 
 <body class="is-preload">
 
-<div id="wrapper">
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-	<!-- Header -->
-	<header id="header">
-		<a href="index.html" class="logo">
-			<strong>Chika Nwankwo</strong>
-			<span>E-Portfolio</span>
-		</a>
+		<!-- Header -->
+		<header id="header">
 
-		<nav>
-			<a href="#menu">Menu</a>
-		</nav>
-	</header>
+			<a href="index.html" class="logo">
+				<strong>Chika Nwankwo</strong>
+				<span>E-Portfolio</span>
+			</a>
 
-	<!-- Menu -->
-	<nav id="menu">
-		<ul class="links">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="landing.html">Numerical Analysis</a></li>
-			<li><a href="generic.html">Deciphering Big Data</a></li>
-			<li><a href="elements.html">About Me</a></li>
-		</ul>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
 
-		<ul class="actions stacked">
-			<li>
-				<a href="landing.html" class="button primary fit">
-					Back to Numerical Analysis
-				</a>
-			</li>
-		</ul>
-	</nav>
+		</header>
 
-	<!-- Main -->
-	<div id="main" class="alt">
+		<!-- Menu -->
+		<nav id="menu">
 
-		<section id="one">
-			<div class="inner">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="landing.html">Numerical Analysis</a></li>
+				<li><a href="generic.html">Deciphering Big Data</a></li>
+				<li><a href="elements.html">About Me</a></li>
+				<li><a href="professional-reflection.html">Professional Reflection</a></li>
+			</ul>
 
-				<header class="major">
-					<h1>Unit 2: Frequency Analysis Using R</h1>
-				</header>
-
-				<h2>Overview</h2>
-
-				<p>
-					This unit developed my understanding of frequency analysis in R.
-					I used the COVID-19 dataset to create a binary variable showing
-					whether each daily state report recorded any recovered patients.
-					I then produced a frequency table and calculated the percentage
-					of reports within each category.
-				</p>
-
-				<hr />
-
-				<h2>Learning Outcomes</h2>
-
-				<ul>
-					<li>Create a new binary variable from an existing numeric variable.</li>
-					<li>Use conditional logic through the <code>ifelse()</code> function.</li>
-					<li>Create and interpret frequency tables in R.</li>
-					<li>Convert frequency counts into proportions and percentages.</li>
-					<li>Explain statistical outputs clearly.</li>
-				</ul>
-
-				<hr />
-
-				<h2>Task 1: Creating a Binary Variable</h2>
-
-				<p>
-					I created a new variable named <code>has_recovery</code> using
-					the following R command:
-				</p>
-
-				<pre><code>covid$has_recovery &lt;- ifelse(covid$Cured &gt; 0, 1, 0)</code></pre>
-
-				<p>
-					The <code>ifelse()</code> function checked each value in the
-					<code>Cured</code> column. Reports containing one or more
-					recoveries were assigned a value of 1, while reports containing
-					no recoveries were assigned a value of 0. This converted the
-					recovery information into a binary yes-or-no variable.
-				</p>
-
-				<hr />
-
-				<h2>Task 2: Creating a Frequency Table</h2>
-
-				<p>
-					I used the following command to count the number of observations
-					in each category:
-				</p>
-
-				<pre><code>table(covid$has_recovery)</code></pre>
-
-				<table>
-					<thead>
-						<tr>
-							<th>Category</th>
-							<th>Meaning</th>
-							<th>Frequency</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<tr>
-							<td>0</td>
-							<td>No recoveries recorded</td>
-							<td>215</td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td>One or more recoveries recorded</td>
-							<td>55</td>
-						</tr>
-					</tbody>
-				</table>
-
-				<p>
-					The frequency table showed that most daily state reports did not
-					yet contain any recovered patients. There were 215 reports with
-					no recoveries and 55 reports with at least one recovery.
-				</p>
-
-				<hr />
-
-				<h2>Task 3: Calculating Percentages</h2>
-
-				<p>
-					I converted the frequency counts into percentages using:
-				</p>
-
-				<pre><code>round(prop.table(table(covid$has_recovery)) * 100, 2)</code></pre>
-
-				<table>
-					<thead>
-						<tr>
-							<th>Category</th>
-							<th>Percentage</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<tr>
-							<td>No recoveries recorded</td>
-							<td>79.63%</td>
-						</tr>
-
-						<tr>
-							<td>At least one recovery recorded</td>
-							<td>20.37%</td>
-						</tr>
-					</tbody>
-				</table>
-
-				<p>
-					The results indicate that 79.63% of the daily state reports
-					recorded no recoveries, while 20.37% recorded at least one
-					recovery. This reflects the early stage of the COVID-19 outbreak
-					in India between January and March 2020, when recoveries were
-					still relatively uncommon.
-				</p>
-
-				<hr />
-
-				<h2>Skills Demonstrated</h2>
-
-				<ul>
-					<li>Creating new variables in R.</li>
-					<li>Applying conditional logic using <code>ifelse()</code>.</li>
-					<li>Producing frequency tables using <code>table()</code>.</li>
-					<li>Calculating proportions with <code>prop.table()</code>.</li>
-					<li>Converting proportions into percentages.</li>
-					<li>Interpreting and communicating statistical findings.</li>
-				</ul>
-
-				<hr />
-
-				<h2>Reflection</h2>
-
-				<p>
-					This activity improved my understanding of how raw numeric data
-					can be transformed into categories that are easier to summarise
-					and interpret. Creating the binary variable helped me see how
-					conditional logic can be used to answer a specific analytical
-					question.
-				</p>
-
-				<p>
-					I also developed a clearer understanding of the difference
-					between frequencies, proportions and percentages. In response
-					to the formative feedback received for Unit 1, I included the
-					output of each key command, explained what the command did and
-					provided a short interpretation of the results.
-				</p>
-
-				<hr />
-
-				<h2>Evidence</h2>
-
-				<p>
-					The completed Unit 2 activity, including the R commands, outputs
-					and interpretation, can be downloaded below.
-				</p>
-
-				<ul class="actions">
-
-					<li>
-						<a href="Unit%202%20-%20Data%20Structures%20In%20R.docx"
-						   class="button primary icon solid fa-download">
-							Download Unit 2 Report
-						</a>
-					</li>
-
-					<li>
-						<a href="landing.html" class="button">
-							Back to Module
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
-		</section>
-
-	</div>
-
-	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-
-			<ul class="icons">
+			<ul class="actions stacked">
 				<li>
-					<a href="https://github.com/cnwankwo-prog"
-					   class="icon brands alt fa-github">
-						<span class="label">GitHub</span>
+					<a href="landing.html" class="button primary fit">
+						Back to Numerical Analysis
 					</a>
 				</li>
 			</ul>
 
-			<ul class="copyright">
-				<li>&copy; Chika Nwankwo</li>
-				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main" class="alt">
+
+			<section id="one">
+
+				<div class="inner">
+
+					<header class="major">
+						<h1>Unit 2: Frequency Analysis Using R</h1>
+					</header>
+
+					<h2>Summary</h2>
+
+					<p>
+						Unit 2 developed my understanding of frequency analysis
+						using R. I created a binary recovery variable from the
+						COVID-19 dataset and used frequency tables, proportions
+						and percentages to summarise the results. The activity
+						strengthened my understanding of how raw numeric data can
+						be transformed into categories that are easier to analyse
+						and interpret.
+					</p>
+
+					<hr />
+
+					<h2>Evidence</h2>
+
+					<ul class="actions">
+
+						<li>
+							<a href="Unit%202%20-%20Data%20Structures%20In%20R.docx"
+							   class="button primary icon solid fa-download">
+								Download Unit 2 Report
+							</a>
+						</li>
+
+						<li>
+							<a href="landing.html" class="button">
+								Back to Module
+							</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</section>
 
 		</div>
-	</footer>
 
-</div>
+		<!-- Footer -->
+		<footer id="footer">
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+			<div class="inner">
+
+				<ul class="icons">
+					<li>
+						<a href="https://github.com/cnwankwo-prog"
+						   class="icon brands alt fa-github">
+							<span class="label">GitHub</span>
+						</a>
+					</li>
+				</ul>
+
+				<ul class="copyright">
+					<li>&copy; Chika Nwankwo</li>
+					<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+
+			</div>
+
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
