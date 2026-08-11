@@ -5,11 +5,13 @@
 	Free for personal and commercial use under the CCA 3.0 license
 -->
 <html>
+
 	<head>
 		<title>Deciphering Big Data | Unit 3 | Chika Nwankwo</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
 		<noscript>
 			<link rel="stylesheet" href="assets/css/noscript.css" />
 		</noscript>
@@ -22,6 +24,7 @@
 
 			<!-- Header -->
 			<header id="header">
+
 				<a href="index.html" class="logo">
 					<strong>Chika Nwankwo</strong>
 					<span>E-Portfolio</span>
@@ -30,10 +33,12 @@
 				<nav>
 					<a href="#menu">Menu</a>
 				</nav>
+
 			</header>
 
 			<!-- Menu -->
 			<nav id="menu">
+
 				<ul class="links">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="elements.html">About Me</a></li>
@@ -49,409 +54,63 @@
 						</a>
 					</li>
 				</ul>
+
 			</nav>
 
 			<!-- Main -->
 			<div id="main" class="alt">
 
 				<section id="one">
+
 					<div class="inner">
 
 						<header class="major">
 							<h1>Unit 3: Data Collection and Storage</h1>
 						</header>
 
-						<!-- Overview -->
-						<h2>Overview</h2>
+						<h2>Summary</h2>
 
 						<p>
-							This unit explored different sources of data, methods of
-							data collection and the challenges associated with collecting,
-							verifying and storing information. Particular emphasis was
-							placed on data integrity, fact-checking, web services,
-							crowdsourced data and the memory and storage requirements
-							of different data formats.
+							Unit 3 focused on different sources of data, methods of
+							data collection, data integrity and the challenges associated
+							with storing and verifying information. The unit also explored
+							web services, crowdsourced data and the importance of checking
+							the reliability of data before it is used for analysis.
+						</p>
+
+						<p>
+							As part of the practical activity, I used Python in Google
+							Colaboratory with the Requests and Beautiful Soup libraries
+							to scrape information from the Wikipedia Data Science webpage.
+							The script searched for the term <strong>"Data Scientist"</strong>
+							and saved the matching results in JSON format.
+						</p>
+
+						<p>
+							The activity also required some troubleshooting. My initial
+							request returned a <strong>403 Forbidden</strong> response,
+							which I resolved by adding a User-Agent header. The revised
+							request returned a <strong>200 OK</strong> response and
+							successfully identified five matching results.
+						</p>
+
+						<p>
+							Overall, this unit strengthened my understanding of how
+							unstructured online data can be collected and converted into
+							a structured format, while also reinforcing the importance of
+							data integrity, ethical collection and checking whether a
+							source is suitable for analysis.
 						</p>
 
 						<hr />
 
-						<!-- Learning Outcomes -->
-						<h2>Learning Outcomes</h2>
-
-						<ul>
-							<li>Analyse different data sources.</li>
-							<li>Verify the integrity and reliability of data.</li>
-							<li>Apply appropriate data collection methods.</li>
-							<li>Conduct fact-finding and fact-checking.</li>
-							<li>Understand memory and storage requirements.</li>
-							<li>Evaluate the use of web services and crowdsourced data.</li>
-						</ul>
-
-						<hr />
-
-						<!-- Required Reading -->
-						<h2>Required Reading</h2>
-
-						<h3>McKinney (2022), Chapter 7</h3>
-
-						<p>
-							This reading developed my understanding of data cleaning
-							and preparation using Python. It introduced techniques for
-							identifying and handling missing values, removing duplicate
-							records, transforming data and preparing datasets so that
-							they can be analysed more reliably.
-						</p>
-
-						<h3>Sardar and Pandey (2024)</h3>
-
-						<p>
-							This reading reinforced the importance of selecting reliable
-							data sources and maintaining data quality throughout the
-							collection and storage process. It also highlighted the
-							challenges created by increasingly large and complex datasets,
-							including the need for appropriate and scalable storage
-							solutions.
-						</p>
-
-						<hr />
-
-						<!-- Web Scraping Activity -->
-						<h2>Practical Activity: Web Scraping Using Python</h2>
-
-						<p>
-							For this activity, I used Google Colaboratory to create and
-							run a Python web-scraping script. The script used the
-							Requests and Beautiful Soup libraries to retrieve and parse
-							information from the Wikipedia Data Science webpage.
-						</p>
-
-						<p>
-							The script searched the webpage paragraphs for the keyword
-							<strong>"Data Scientist"</strong>. Matching paragraphs were
-							extracted, stored in a Python list and then saved in a JSON
-							file so that the information could be reused or analysed later.
-						</p>
-
-						<h3>Aim</h3>
-
-						<p>
-							The aim of the activity was to create a Python script that
-							could access a webpage, search its content for a selected
-							keyword and save the matching results in a structured JSON
-							format.
-						</p>
-
-						<h3>Libraries Used</h3>
-
-						<ul>
-							<li>
-								<strong>Requests:</strong> used to send HTTP requests
-								and retrieve the webpage.
-							</li>
-
-							<li>
-								<strong>Beautiful Soup:</strong> used to parse and
-								search the webpage HTML.
-							</li>
-
-							<li>
-								<strong>JSON:</strong> used to save the extracted
-								information in a structured file.
-							</li>
-						</ul>
-
-						<h3>Key Python Commands</h3>
-
-						<pre><code>!pip install requests beautifulsoup4</code></pre>
-
-						<pre><code>import requests
-from bs4 import BeautifulSoup
-import json</code></pre>
-
-						<pre><code>url = "https://en.wikipedia.org/wiki/Data_science"</code></pre>
-
-						<pre><code>headers = {
-    "User-Agent": "Mozilla/5.0"
-}
-
-response = requests.get(url, headers=headers)</code></pre>
-
-						<pre><code>soup = BeautifulSoup(response.text, "html.parser")</code></pre>
-
-						<pre><code>keyword = "Data Scientist"
-results = []
-
-for paragraph in soup.find_all("p"):
-    text = paragraph.get_text(" ", strip=True)
-
-    if keyword.lower() in text.lower():
-        results.append(text)</code></pre>
-
-						<pre><code>data = {
-    "url": url,
-    "keyword": keyword,
-    "results_found": len(results),
-    "results": results
-}</code></pre>
-
-						<pre><code>with open("data_scientist_results.json", "w", encoding="utf-8") as file:
-    json.dump(data, file, indent=4)</code></pre>
-
-						<hr />
-
-						<!-- Challenges -->
-						<h2>Challenges and Problem-Solving</h2>
-
-						<p>
-							The initial HTTP request returned a
-							<strong>403 Forbidden</strong> response. This meant that
-							the website was refusing the automated request.
-						</p>
-
-						<p>
-							I resolved this by adding a
-							<strong>User-Agent header</strong> to the request so that
-							it was recognised as coming from a web browser. After this
-							change, the request returned a
-							<strong>200 OK</strong> status code, confirming that the
-							webpage had been accessed successfully.
-						</p>
-
-						<hr />
-
-						<!-- Key Results -->
-						<h2>Key Results</h2>
-
-						<table>
-							<thead>
-								<tr>
-									<th>Measure</th>
-									<th>Result</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<tr>
-									<td>Webpage used</td>
-									<td>Wikipedia Data Science webpage</td>
-								</tr>
-
-								<tr>
-									<td>Keyword searched</td>
-									<td>Data Scientist</td>
-								</tr>
-
-								<tr>
-									<td>Initial response</td>
-									<td>403 Forbidden</td>
-								</tr>
-
-								<tr>
-									<td>Successful response</td>
-									<td>200 OK</td>
-								</tr>
-
-								<tr>
-									<td>Matching results found</td>
-									<td>5</td>
-								</tr>
-
-								<tr>
-									<td>Output format</td>
-									<td>JSON</td>
-								</tr>
-							</tbody>
-						</table>
-
-						<p>
-							The completed script successfully identified five paragraphs
-							containing the selected keyword and stored the extracted
-							information in a JSON file.
-						</p>
-
-						<hr />
-
-						<!-- Skills -->
-						<h2>Skills Developed</h2>
-
-						<ul>
-							<li>Python programming</li>
-							<li>Using Google Colaboratory</li>
-							<li>Sending HTTP requests</li>
-							<li>Using the Requests library</li>
-							<li>Parsing HTML with Beautiful Soup</li>
-							<li>Searching webpage content</li>
-							<li>Extracting unstructured data</li>
-							<li>Creating structured JSON output</li>
-							<li>Problem-solving and error resolution</li>
-							<li>Understanding ethical web-scraping considerations</li>
-						</ul>
-
-						<hr />
-
-						<!-- Web Scraping Reflection -->
-						<h2>Reflection on the Web Scraping Activity</h2>
-
-						<p>
-							Completing this activity improved my understanding of how
-							data can be collected automatically from online sources
-							using Python. I gained practical experience using the
-							Requests and Beautiful Soup libraries to retrieve webpage
-							content and convert unstructured HTML into structured data.
-						</p>
-
-						<p>
-							The initial 403 response demonstrated that web scraping does
-							not always work immediately and may require troubleshooting.
-							Adding the User-Agent header helped me understand how websites
-							identify requests and why some automated requests may be
-							blocked.
-						</p>
-
-						<p>
-							I also learned that web-scraping scripts depend on the
-							structure of a webpage. If the HTML structure changes, the
-							script may need to be updated. The activity reinforced the
-							importance of respecting website policies, avoiding excessive
-							requests and ensuring that private or copyrighted information
-							is not collected inappropriately.
-						</p>
-
-						<hr />
-
-						<!-- Collaborative Discussion -->
-						<header class="major">
-							<h2>Collaborative Discussion 1</h2>
-						</header>
-
-						<p>
-							The collaborative discussion ran across Units 1, 2 and 3.
-							My initial post in Unit 1 explored the rationale behind the
-							Internet of Things (IoT) and considered the opportunities,
-							limitations, risks and challenges associated with large-scale
-							data collection.
-						</p>
-
-						<p>
-							During the later stages of the discussion, I reviewed the
-							contributions of other students, provided constructive peer
-							responses and used the wider discussion to develop my final
-							summary post.
-						</p>
-
-						<h3>Peer Responses</h3>
-
-						<p>
-							Engaging with my peers' contributions allowed me to consider
-							additional perspectives on the opportunities and risks
-							associated with IoT data collection. My responses considered
-							issues including data quality, privacy, cybersecurity,
-							data governance and the measures organisations can use to
-							reduce the risks associated with collecting and processing
-							large volumes of data.
-						</p>
-
-						<p>
-							The peer-review process encouraged me to move beyond simply
-							identifying problems and consider how organisations could
-							address them. This included considering preventative measures
-							such as automated data validation, continuous monitoring,
-							appropriate security controls and stronger governance
-							arrangements.
-						</p>
-
-						<h3>Summary Post</h3>
-
-						<p>
-							My final summary brought together the main points from my
-							initial post, the feedback generated through peer discussion
-							and the learning developed across Units 1, 2 and 3.
-						</p>
-
-						<p>
-							The discussion reinforced my understanding that IoT can
-							provide significant benefits through continuous and
-							real-time data collection. However, simply collecting a
-							larger volume of information does not automatically produce
-							better decisions. The usefulness of the information depends
-							on its accuracy, relevance, reliability and the way it is
-							managed.
-						</p>
-
-						<p>
-							I also developed a greater appreciation of the importance
-							of privacy, cybersecurity, data governance and ethical data
-							collection. These considerations need to be addressed
-							alongside the technical opportunities presented by IoT.
-						</p>
-
-						<h3>Reflection on the Collaborative Discussion</h3>
-
-						<p>
-							Participating in the collaborative discussion helped develop
-							my critical-thinking skills by requiring me to evaluate
-							viewpoints beyond my own initial contribution. Reading and
-							responding to different perspectives encouraged me to
-							consider areas that I had not explored fully in my original
-							post and to support my responses with academic evidence.
-						</p>
-
-						<p>
-							The activity also demonstrated the value of peer learning.
-							My understanding developed from initially focusing mainly
-							on the benefits and risks of IoT towards considering the
-							practical controls that organisations need to implement to
-							manage these risks effectively.
-						</p>
-
-						<p>
-							Overall, the discussion strengthened my understanding that
-							the successful use of large-scale data collection depends
-							on more than technology alone. Data quality, security,
-							governance, ethical considerations and appropriate
-							management processes are all important in ensuring that
-							collected data can be used safely and effectively.
-						</p>
-
-						<h3>Collaborative Discussion Evidence</h3>
-
-						<ul class="actions">
-
-							<li>
-								<a href="Unit%203%20-%20Collaborative%20Discussion%20Peer%20Responses.docx"
-								   class="button primary icon solid fa-download">
-									Download Peer Responses
-								</a>
-							</li>
-
-							<li>
-								<a href="Unit%203%20-%20Collaborative%20Discussion%20Summary%20Post.docx"
-								   class="button icon solid fa-download">
-									Download Summary Post
-								</a>
-							</li>
-
-						</ul>
-
-						<hr />
-
-						<!-- Evidence -->
 						<h2>Unit 3 Evidence</h2>
 
 						<p>
-							The evidence from this unit demonstrates both practical
-							data-collection skills and my development through
-							collaborative academic discussion.
+							The full activity, including the Python code, outputs,
+							Google Colab screenshots and reflection, can be downloaded
+							below.
 						</p>
-
-						<ul>
-							<li>Web Scraping Activity Word document</li>
-							<li>Python code</li>
-							<li>JSON output</li>
-							<li>Google Colab screenshots</li>
-							<li>Collaborative Discussion peer responses</li>
-							<li>Collaborative Discussion summary post</li>
-						</ul>
 
 						<ul class="actions">
 
@@ -471,12 +130,14 @@ for paragraph in soup.find_all("p"):
 						</ul>
 
 					</div>
+
 				</section>
 
 			</div>
 
 			<!-- Footer -->
 			<footer id="footer">
+
 				<div class="inner">
 
 					<ul class="icons">
@@ -497,6 +158,7 @@ for paragraph in soup.find_all("p"):
 					</ul>
 
 				</div>
+
 			</footer>
 
 		</div>
@@ -511,4 +173,5 @@ for paragraph in soup.find_all("p"):
 		<script src="assets/js/main.js"></script>
 
 	</body>
+
 </html>
